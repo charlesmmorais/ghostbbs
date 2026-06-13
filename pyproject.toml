@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ghostbbs"
+version = "0.1.0"
+description = "A BBS de 1986 que nunca existiu, rodando offline num NPU (M5Stack LLM Kit / AX630C)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["bbs", "llm", "m5stack", "ax630c", "retrocomputing", "edge-ai", "offline"]
+dependencies = []  # caminho telnet usa apenas a stdlib
+
+[project.optional-dependencies]
+serial = ["pyserial-asyncio>=0.6"]
+dev = ["pytest>=7", "pytest-asyncio>=0.21", "pytest-timeout>=2"]
+
+[project.scripts]
+ghostbbs = "ghostbbs.server:main"
+
+[tool.setuptools.packages.find]
+include = ["ghostbbs*"]

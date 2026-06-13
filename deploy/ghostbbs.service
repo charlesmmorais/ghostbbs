@@ -1,0 +1,21 @@
+[Unit]
+Description=GhostBBS - a BBS de 1986 que nunca existiu (M5Stack LLM Kit)
+After=network.target llm-openai-api.service
+Wants=llm-openai-api.service
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/ghostbbs
+Environment=GHOSTBBS_PORT=2323
+Environment=GHOSTBBS_LLM_URL=http://127.0.0.1:8000/v1
+Environment=GHOSTBBS_LLM_MODEL=qwen2.5-0.5B-prefill-20e
+Environment=GHOSTBBS_EMU_BAUD=1200
+Environment=GHOSTBBS_DB=/opt/ghostbbs/ghostbbs.sqlite3
+Environment=GHOSTBBS_GHOST_MIN=600
+Environment=GHOSTBBS_GHOST_MAX=3600
+ExecStart=/usr/bin/python3 -m ghostbbs
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
