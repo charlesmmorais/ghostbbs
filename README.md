@@ -90,7 +90,7 @@ Tudo isso em **~1.5 W**, sem nuvem, sem API key, sem internet. O LLM não é um 
 Dá para rodar e brincar com a placa inteira no seu PC, com os fantasmas em modo determinístico:
 
 ```bash
-git clone https://github.com/SEU_USUARIO/ghostbbs.git
+git clone https://github.com/charlesmmorais/ghostbbs.git
 cd ghostbbs
 
 # nenhuma dependência externa obrigatória — só stdlib do Python 3.10+
